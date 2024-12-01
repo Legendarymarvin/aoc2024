@@ -65,11 +65,15 @@ pub fn solve2(input: &str) -> (i32, i32) {
 }
 
 fn part1(left: &mut Vec<i32>, right: &mut Vec<i32>) -> i32 {
-    let mut sum = 0;
-    for (i, l) in left.iter().enumerate() {
-        sum += (l - right[i]).abs();
-    }
-    sum
+    // let mut sum = 0;
+    // for (i, l) in left.iter().enumerate() {
+    //     sum += (l - right[i]).abs();
+    // }
+    // sum
+    left.iter()
+        .zip(right.iter())
+        .map(|(l, r)| (l - r).abs())
+        .sum()
 }
 
 fn part2(left: &mut Vec<i32>, right: &mut Vec<i32>) -> i32 {
