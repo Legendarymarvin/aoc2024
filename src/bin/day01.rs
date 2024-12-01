@@ -1,12 +1,17 @@
 use std::collections::HashMap;
 
 fn main() {
+    let input = include_str!("./inputs/input01.txt");
+
     // Benchmark 1: ./target/release/day01
     // Time (mean ± σ):     788.2 µs ±  97.2 µs    [User: 601.3 µs, System: 110.0 µs]
     // Range (min … max):   671.9 µs … 1861.1 µs    3175 runs
-
-    let input = include_str!("./inputs/input01.txt");
     let (sum, similarity) = solve(input);
+
+    //  Benchmark 1: ./target/release/day01
+    //  Time (mean ± σ):     808.4 µs ±  93.0 µs    [User: 623.4 µs, System: 114.3 µs]
+    //  Range (min … max):   672.5 µs … 1567.1 µs    2583 runs
+    // let (sum, similarity) = solve2(input);
 
     println!("Part 1: {}", sum);
     println!("Part 2: {}", similarity);
@@ -28,6 +33,28 @@ pub fn solve(input: &str) -> (i32, i32) {
 
     let sum = part1(&mut left, &mut right);
     let similarity = part2(&mut left, &mut right);
+    (sum, similarity)
+}
+
+pub fn solve2(input: &str) -> (i32, i32) {
+    let (mut left, mut right): (Vec<i32>, Vec<i32>) = input
+        .lines()
+        .map(|line| {
+            let mut nums = line
+                .split_whitespace()
+                .map(|s| s.parse::<i32>().unwrap());
+            (nums.next().unwrap(), nums.next().unwrap())
+        })
+        .unzip();
+
+    left.sort();
+    right.sort();
+    let mut sum = 0;
+    let mut similarity = 0;
+    for (i, l) in left.iter().enumerate() {
+        sum += (l - right[i]).abs();
+        similarity += l * right.iter().filter(|&&x| x == *l).count() as i32;
+    }
     (sum, similarity)
 }
 
