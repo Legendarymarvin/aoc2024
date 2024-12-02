@@ -1,7 +1,7 @@
 use aoc2024::solutions::day02::solve_day_02;
 
 fn main() {
-    let input = include_str!("./inputs/input01.txt");
+    let input = include_str!("./inputs/input02.txt");
 
     let (part1, part2) = solve_day_02(input);
 

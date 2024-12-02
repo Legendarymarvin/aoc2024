@@ -91,4 +91,18 @@ mod tests {
         let expected_similarity = 31;
         assert_eq!(similarity, expected_similarity, "Part 2 failed");
     }
+    #[test]
+    fn test_solve_real() {
+        let test_input = include_str!("../bin/inputs/input01.txt");
+
+        let (sum, similarity) = solve_day_01(test_input);
+
+        // Test Part 1
+        let expected_sum = 2815556;
+        assert_eq!(sum, expected_sum, "Part 1 failed");
+
+        // Test Part 2
+        let expected_similarity = 23927637;
+        assert_eq!(similarity, expected_similarity, "Part 2 failed");
+    }
 }
