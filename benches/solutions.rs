@@ -41,6 +41,8 @@ fn day04() -> (usize, i32) {
     // Timer precision: 20 ns
     // solutions  fastest       │ slowest       │ median        │ mean          │ samples │ iters
     // ╰─ day04   1.924 ms      │ 2.131 ms      │ 2 ms          │ 2.003 ms      │ 100     │ 10000
+    // fast versions
+    // ╰─ day04   316.6 µs      │ 379.6 µs      │ 353.1 µs      │ 348.4 µs      │ 100     │ 10000
 
     let input = include_str!("../src/bin/inputs/input04.txt");
     solve_day_04(input)
