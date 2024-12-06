@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 regex = "1.11.1"
 petgraph = "0.6.5"
+rayon = "1.10.0"
 
 
 [dev-dependencies]
