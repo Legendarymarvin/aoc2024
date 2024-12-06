@@ -78,6 +78,8 @@ fn part2(map: &HashMap<Point, Thing>, start: Point, edge: usize) -> usize {
      empty_positions
         .par_iter()
         .filter_map(|&obstacle_pos| {
+            // you could save these clones by giving the point into the methods and check that
+            // additionally, but it makes the code a bit uglier and actually not faster, I tried :(
             let mut map_with_obstacle = map.clone();
             map_with_obstacle.insert(obstacle_pos, OBSTACLE);
 
