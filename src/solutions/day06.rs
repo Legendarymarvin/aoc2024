@@ -41,9 +41,9 @@ fn solve(input: &str) -> (usize, usize) {
     let (map, guard) = create_map(input);
 
     let (part1, positions) = part1(edge, &map, guard);
-    let part2 = part2(&map, guard, edge);
+    let part2 = part2(&map, guard, edge, &positions);
 
-    print_map(&map, &positions, edge);
+    //print_map(&map, &positions, edge);
     (part1, part2)
 }
 
@@ -63,11 +63,11 @@ fn part1(edge: usize, map: &HashMap<Point, Thing>, mut guard: Point) -> (usize, 
     (part1, positions)
 }
 
-fn part2(map: &HashMap<Point, Thing>, start: Point, edge: usize) -> usize {
+fn part2(map: &HashMap<Point, Thing>, start: Point, edge: usize, positions: &HashSet<Point>) -> usize {
     let empty_positions: Vec<Point> = map
         .iter()
         .filter_map(|(&pos, thing)| {
-            if thing == &EMPTY && pos != start {
+            if positions.contains(&pos) && thing == &EMPTY && pos != start {
                 Some(pos)
             } else {
                 None
