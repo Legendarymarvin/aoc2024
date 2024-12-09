@@ -83,8 +83,7 @@ fn day07() -> (i64, usize) {
 #[divan::bench(sample_size = 1)]
 fn day09() -> (usize, usize) {
     // solutions  fastest       │ slowest       │ median        │ mean          │ samples │ iters
-    // ╰─ day07   16.8 ms       │ 25.19 ms      │ 18.05 ms      │ 18.24 ms      │ 100     │ 100
-    // only part 1, so kinda pointless.
+    // ╰─ day09   502 ms        │ 568 ms        │ 522.5 ms      │ 524.9 ms      │ 100     │ 100
 
     let input = include_str!("../src/bin/inputs/input09.txt");
     solve_day_09(input)
