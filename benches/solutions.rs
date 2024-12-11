@@ -6,6 +6,8 @@ use aoc2024::solutions::day05::solve_day_05;
 use aoc2024::solutions::day06::solve_day_06;
 use aoc2024::solutions::day07::solve_day_07;
 use aoc2024::solutions::day09::solve_day_09;
+use aoc2024::solutions::day10::solve_day_10;
+use aoc2024::solutions::day11::solve_day_11;
 
 fn main() {
     divan::main();
@@ -87,4 +89,22 @@ fn day09() -> (usize, usize) {
 
     let input = include_str!("../src/bin/inputs/input09.txt");
     solve_day_09(input)
+}
+
+#[divan::bench(sample_size = 1)]
+fn day10() -> (usize, usize) {
+    // solutions  fastest       │ slowest       │ median        │ mean          │ samples │ iters
+    // ╰─ day10   1.081 ms      │ 1.383 ms      │ 1.095 ms      │ 1.118 ms      │ 100     │ 100
+
+    let input = include_str!("../src/bin/inputs/input10.txt");
+    solve_day_10(input)
+}
+
+#[divan::bench(sample_size = 1)]
+fn day11() -> (usize, usize) {
+    // solutions  fastest       │ slowest       │ median        │ mean          │ samples │ iters
+    // ╰─ day11   9.969 ms      │ 12.48 ms      │ 10.15 ms      │ 10.25 ms      │ 100     │ 100
+
+    let input = include_str!("../src/bin/inputs/input11.txt");
+    solve_day_11(input)
 }
