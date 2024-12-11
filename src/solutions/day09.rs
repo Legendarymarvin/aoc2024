@@ -128,7 +128,6 @@ mod tests {
 
         let (p1, p2) = solve_day_09(test_input);
 
-        // Off by one for test, not for real, not sure why
         assert_eq!(p1, 1928, "Part 1 failed");
         assert_eq!(p2, 2858, "Part 2 failed");
     }
